@@ -1,0 +1,25 @@
+<div class="row m-3">
+    <div class= "col-8">
+        <h1>New Country</h1>
+    </div>
+</div>
+<form [formGroup]="form">
+    <input type="hidden" formControlName="id">
+<div class="row m-3">
+    <div class="col-8">
+        <span style="display:inline-block;">Name </span>
+ <input type="text"  formControlName="name"/>
+ <small *ngIf="form.controls['name'].touched&&form.hasError('required','name')">This Field is Required</small>
+    </div>
+    </div>
+<div class="row ms-5 mx-3">
+    <div class="col-8">
+            
+                <input type="submit" *ngIf="bag==true"  value="Save" class="btn btn-dark" (click)="OnSave()"/>
+
+                <input type="submit" *ngIf="bag==false" value="Update" class="btn btn-dark" (click)="OnUpdate()"/>
+
+            
+        </div>
+</div>
+</form>

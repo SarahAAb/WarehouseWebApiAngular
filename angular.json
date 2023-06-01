@@ -25,9 +25,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/assets/sidebars.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js",
+            "node_modules/jquery/dist/jquery.js",
+            "src/assets/sidebars.js"]
           },
           "configurations": {
             "production": {
@@ -52,6 +56,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+              
             }
           },
           "defaultConfiguration": "production"
@@ -89,7 +94,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            
+          ]
+          
           }
         }
       }

@@ -1,0 +1,36 @@
+<h1>WarehouseList</h1>
+
+
+    <table class="table table-bordered table-stripped table-hover mt-3">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Options
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                <tr *ngFor="let item of liware">
+                    <td>
+                      {{item.name}}
+                    </td>
+                    <td>
+              <input type="submit" class="btn btn-success" value="Edit" (click)="OnEdit(item.id)"  />
+              <input type="submit" class="btn btn-danger" value="Delete" (click)="OnDelete(item.id)"  />                         
+             <input type="submit" class="btn btn-info" value="View" (click)="view(item.id)" />
+                    </td>
+                </tr>
+            
+
+        </tbody>
+    </table>
+    <div>
+                                        
+
+                <input type="submit" value="Add WareHouse" class="btn btn-dark" routerLink="/home/NewWarehouse" />
+    </div>
+

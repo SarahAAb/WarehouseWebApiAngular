@@ -1,0 +1,23 @@
+<table class="table table-bordered table-hover table-striped">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Options</th>
+    </tr>
+</thead>
+<tbody>
+    <tr  *ngFor="let item of licountry">
+        <th>
+            {{item.name}}
+        </th>
+        <th>
+           <input type="button" class="btn btn-dark" value="Edit" (click)="OnEdit(item.id)"> 
+           <input type="button" class="btn btn-dark" value="Delete" (click)="OnDelete(item.id)"> 
+
+        </th>
+    </tr>
+    <input type="button" class="btn btn-dark" routerLink="/home/NewCountry" value="New Country" > 
+
+</tbody>
+  </table>
+  

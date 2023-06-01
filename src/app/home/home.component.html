@@ -1,0 +1,52 @@
+<div id="mySidebar" class="sidebar"  *ngIf="showDropdown==true">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+      <div class="container-fluid">
+        <div class="row flex-nowrap">
+          <ul class="list-unstyled ps-0">
+
+                    <li class="mb-1" *ngIf="role=='Manager'||role=='Employee'">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                            Warehouse
+                        </button>
+                        <div class="collapse show" id="home-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                              
+                                    <li  *ngIf="role=='Manager'"><a routerLink="/home/WarehouseList" class="link-dark rounded">Warehouses List</a></li>
+                                
+                                    <li  *ngIf="role=='Employee'"><a routerLink="/home/ItemList" class="link-dark rounded">Items</a></li>
+                              
+                    </ul>
+                </div>
+            </li>
+                    <li class="mb-1" *ngIf="role=='Admin'">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+Settings                </button>
+                <div class="collapse" id="dashboard-collapse" >
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li ><a  routerLink="/home/CountryList" class="link-dark rounded">Countries</a></li>
+                        <li><a routerLink="/home/CityList"    class="link-dark rounded">Cities</a></li>
+                        <li><a  class="link-dark rounded" routerLink="/home/RoleList">Roles</a></li>
+                        <li><a  class="link-dark rounded" routerLink="/home/UserList">Users</a></li>
+                        <li><a  class="link-dark rounded"  routerLink="/home/NewUser">New User</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a class="link-dark rounded" (click)="logout()">LogOut</a></li>
+
+           
+        </ul>
+          
+        </div>
+    </div>
+   
+      
+     
+    
+<!--  -->
+  </div>
+  
+  <div id="main">
+    <button class="openbtn" (click)="OpenNav()">&#9776;</button>
+    
+<router-outlet></router-outlet>
+</div>

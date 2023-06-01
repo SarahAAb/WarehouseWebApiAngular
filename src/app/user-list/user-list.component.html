@@ -1,0 +1,33 @@
+<table class="table table-bordered table-stripped table-hover mt-3">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Options
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let item of liUsers">
+                        <td>
+                            {{item.fullName}}
+                        </td>
+                        <td>
+                    {{item.email}}
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn-dark" value="Add Role" (click)="UserRoles(item.userId)"  />
+                            
+                            <input type="submit" class="btn btn-info" value="Active" *ngIf="item.active==false" (click)="Activate(item.userId)"  />
+                            <input type="submit" class="btn btn-info" value="InActive" *ngIf="item.active==true" (click)="Activate(item.userId)"  />
+
+                        </td>
+                    </tr>
+    
+            </tbody>
+        </table>

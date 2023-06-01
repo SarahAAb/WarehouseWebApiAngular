@@ -1,0 +1,67 @@
+<h1>NewWarehouse</h1>
+<form [formGroup]="form">
+   
+
+    <div class="row mt-3">
+            <div style="margin-right:15px;">
+                <input type="hidden" formControlName="id">
+                <span>Name</span>
+            </div>
+            <div>
+                <input type="text" formControlName="name" placeholder="Please enter Name" />
+<small *ngIf="form.hasError('required','name')&&form.controls['name'].touched">This Field is required </small>
+            </div>
+    </div>
+
+    <div class="row mt-3">
+
+            <div style="margin-right:15px;">
+                <span>Description</span>
+
+            </div>
+            <div>
+                <input type="text" formControlName="description" aspit placeholder="Description" />
+
+            </div>
+
+</div>
+
+    <div class="row mt-3">
+            <div style="margin-right:15px;">
+                <span>Country</span>
+
+            </div>
+            <div style="width:50%">
+                <select class="form-select form-select-sm" formControlName="countryId" (change)="GetCities()" aria-label=".form-select-sm example">
+                    <option *ngFor="let item of licountry" [value]="item.id">{{item.name}}</option>
+                </select>
+<small *ngIf="form.hasError('required','countryId')&&form.controls['countryId'].touched">This field is required</small>
+            </div>
+        </div>
+    <div class="row mt-3">
+
+            <div style="margin-right:15px;">
+                <span>City</span>
+
+            </div>
+            <div style="width:50%">
+                <select class="form-select form-select-sm" formControlName="cityId"  aria-label=".form-select-sm example">
+                    <option *ngFor="let item of licity" [value]="item.id">{{item.name}}</option>
+
+                </select>
+<small *ngIf="form.hasError('required','cityId')&&form.controls['cityId'].touched">This field is required</small>
+        </div>
+        </div>
+    
+<input type="hidden" formControlName="createdBy">
+    <div class="row">
+        <div class="col-8" style="padding:15px;">
+          
+                <input type="submit" class="btn btn-dark" *ngIf="bag==true" (click)="SaveData()" value="Save" />
+
+          
+                 <input type="submit" class="btn btn-dark" *ngIf="bag==false" (click)="Update()" value="Update" /> 
+
+            
+        </div>
+    </div>

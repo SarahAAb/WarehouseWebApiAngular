@@ -1,0 +1,92 @@
+
+<form [formGroup]="form">
+    <div class="row mt-3">
+        <div class="col-6 d-flex">
+            <div style="margin-right:15px;">
+                <span>Name</span>
+
+            </div>
+            <div>
+                <input type="text" formControlName="name" placeholder="Please enter Item name" />
+
+            </div>
+        </div>
+        <div class="col-6 d-flex">
+            <div style="margin-right:15px;">
+                <span>Warehouse</span>
+
+            </div>
+            <div>
+                <select class="form-select form-select-sm" formControlName="warehouse_Id" aria-label=".form-select-sm example">
+                    <option *ngFor="let item of liware" [value]="item.id">{{item.name}}</option>
+                </select>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-6 d-flex">
+            <div style="margin-right:15px;">
+                <span>KU Code</span>
+
+
+            </div>
+            <div>
+                <input type="text" formControlName="kuCode" placeholder="Please enter KU Code"/>
+            </div>
+        </div>
+        <div class="col-6 d-flex">
+            <div style="margin-right:15px;">
+                <span>QTY</span>
+            </div>
+            <div>
+
+                <input type="number" formControlName="qty"/>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-6 d-flex">
+            <div style="margin-right:15px;">
+
+                <span>Cost Price</span>
+            </div>
+            <div>
+                <input type="text" formControlName="costPrice" placeholder="Please enter Cost Price" />
+            </div>
+        </div>
+        <div class="col-6 d-flex">
+
+            <div style="margin-right:15px;">
+
+                <span>MSRP Price</span>
+            </div>
+            <div>
+                <input type="text" formControlName="msrpPrice" placeholder="Please enter MSPR Price" />
+
+            </div>
+
+            <div>
+                <input type="hidden" formControlName="id">
+                
+
+                <input type="hidden" formControlName="createdBy">
+                <input type="hidden" formControlName="createdDAT">
+                <input type="hidden" formControlName="modifiedBy">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8" style="padding:15px;">
+          
+                <input type="submit" *ngIf="bag==true" class="btn btn-dark" (click)="SaveData()" value="Save" />
+
+                <input type="submit" *ngIf="bag==false" class="btn btn-dark" (click)="Update()" value="Update" />
+
+            
+        </div>
+    </div>
+</form>

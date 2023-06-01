@@ -1,0 +1,33 @@
+<h1>Item List</h1>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                Name    
+                </th>
+                <th *ngIf="role=='Employee'">
+                    Options
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+                    <tr *ngFor="let item of liItem">
+                        <td>
+                        {{item.name}}
+                    </td>
+                    <td *ngIf="role=='Employee'">
+<input type="submit" class="btn btn-success" value="Edit" (click)="Edit(item.id)"/>
+<input type="submit" class="btn btn-danger" value="Delete" (click)="Delete(item.id)" />
+
+                        </td>
+                </tr>
+          
+        </tbody>
+    </table>
+    <div *ngIf="role=='Employee'">
+   
+                <input type="submit" value="Add item" class="btn btn-dark" routerLink="/home/NewItem" />
+            
+    </div>
+

@@ -1,0 +1,37 @@
+<h1>New City</h1>
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col-6 d-flex">
+            <div style="margin-right:15px;">
+                <span>Country</span>
+
+            </div>
+            <input type="hidden" formControlName="id">
+            <div style="width:50%">
+                <select class="form-select form-select-sm" formControlName="CountryName"  aria-label=".form-select-sm example">
+                    <option *ngFor="let item of licountry" [value]="item.id">{{item.name}}</option>
+                </select>
+<small *ngIf="form.hasError('required','CountryName')&&form.controls['CountryName'].touched">this filed is required</small>
+            </div>
+        </div>
+        <div class="col-6 d-flex">
+            <div style="margin-right:15px;">
+                <span>City</span>
+
+            </div>
+            <div>
+                
+                <input type="text" formControlName="CityName"  placeholder="Please enter City name" />
+                <small *ngIf="form.controls['CityName'].touched&&form.hasError('required','CityName')">this field is required</small>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-8 d-flex">
+     
+            <input type="submit" *ngIf="bag==true" value="Save"  class="btn btn-dark" (click)="OnSave()" />
+            <input type="submit"  *ngIf="bag==false" value="Update"  class="btn btn-dark" (click)="Update()" />
+
+    </div>
+
+</form>

@@ -1,0 +1,37 @@
+<h1>City List</h1>
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+
+            <th>
+                City
+            </th>
+            <th>
+                Country
+            </th>
+            <th>
+                Options
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+           <tr *ngFor="let item of licity">
+                <td>
+                    {{item.name}}
+                </td>
+
+                <td>
+{{item.countryDTO.name}}
+                </td>
+            <td>
+                <input type="submit" class="btn btn-success" value="Edit" (click)="OnEdit(item.id)" />
+                <input type="submit" class="btn btn-danger" value="Delete" (click)="OnDelete(item.id)"/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    <div>
+        <input type="button" value="Add City" class="btn btn-dark" routerLink="/home/NewCity"/>
+    </div>
+

@@ -1,0 +1,39 @@
+    <form [formGroup]="form">
+
+
+        <div class="mb-3 ms-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="FullName" placeholder="name">
+            <small *ngIf="form.controls['FullName'].touched&&form.hasError('required','FullName')">this field is required</small>
+        </div>
+        <div class="mb-3 ms-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="Email" placeholder="email@email.com">
+            <small *ngIf="form.controls['Email'].touched&&form.hasError('required','Email')">This field is required</small>
+            <small *ngIf="form.controls['Email'].touched&&form.hasError('email','Email')">Invaild Email</small>
+        </div>
+        <div class="mb-3 ms-3" style="width:50%">
+            <label class="form-label">Warehouse</label>
+
+                <select class="form-select form-select-sm" formControlName="Warehouse_Id" aria-label=".form-select-sm example">
+                    <option *ngFor="let item of liwarehouse" [value]="item.id">{{item.name}}</option>
+                </select>
+
+        </div>       
+        <div class="mb-3 ms-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="Password" placeholder="password">
+            <small *ngIf="form.controls['Password'].touched&&form.hasError('required','Password')">this field is required</small>
+
+        </div>
+        <div class="mb-3 ms-3">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" formControlName="ConfirmPassward" class="form-control"  placeholder="Confirm Password">
+            <small *ngIf="form.controls['ConfirmPassward'].touched&&form.hasError('required','ConfirmPassward')">this field is required</small>
+
+        </div>
+        <div class="mb-3 ms-3">
+            <input type="submit" value="Create Account" class="btn btn-primary" (click)="SignUp()" />
+        </div>
+    </form>
+
